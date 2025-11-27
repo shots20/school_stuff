@@ -1,0 +1,271 @@
+# Example input
+input1.txt
+ammoniated
+millennium
+
+# Example output
+
+aspiration - in range
+classified - in range
+federation - in range
+graduation - in range
+millennium - in range
+philosophy - not in range
+quadratics - not in range
+transcript - not in range
+wilderness - not in range
+zoologists - not in range
+
+"""my code below to solve the puzzle, it is not requiring to import input1.txt or do anything
+extra curricular, for two of the tests or graded portions, I am getting the correct words with
+- in range but "- in range" is printing on a separate line for WHATEVER reason,
+
+word
+- in range (which is correct) or - not in range (which are correct for the correct words)
+
+tried end="" in 3 or 4 different locations, even tried doing print(whatever, f" - in range") and various
+other ways to print things and nothing is working whatsoever. The other 3 tests / graded pieces
+are all saying ValueError as this or that is not in the list but I have done the try: except
+ValueError as you can see but even tried to set the max to [-1] and the min to index[0]. After
+20 to 30 min I figured out that the list was saved as word\n so as you can see I added that
+to fix the finding of the words but its even still giving me ValueError words not found.
+The try: except ValueError I learned on my own by looking it up and using a little google AI
+to help assist in what it should look like and how it works. I also tried doing with open("file.txt", "r")
+as myfile: and variations of that as well, which was also a looked up / google AI assist."""
+
+file_input = input()
+lower_bound = input() + "\n"
+upper_bound = input() + "\n"
+
+myfile = open(file_input, "r")
+content = myfile.readlines()
+for i in range(len(content)):
+    try:
+        if content.index(lower_bound) <= i <= content.index(upper_bound):
+            print(content[i],f" - in range")
+        else:
+            print(content[i],f" - not in range")
+    except ValueError:
+        if i <= content.index(upper_bound):
+            print(content[i],f" - in range")
+        else:
+            print(content[i],f" - not in range")
+    except ValueError:
+        if content.index(lower_bound) <= i:
+            print(content[i],f" - in range")
+        else:
+            print(content[i],f" - not in range")
+    except ValueError:
+        print(content[i],f" - not in range")
+myfile.close()
+
+# input1.txt below
+
+aspiration
+classified
+federation
+graduation
+millennium
+philosophy
+quadratics
+transcript
+wilderness
+zoologists
+
+# input2.txt below
+
+acromicria
+acronymous
+attractant
+backblocks
+bladderpod
+brownnosed
+burglarise
+busybodies
+economiser
+equanimous
+escarpment
+exfoliated
+extemporal
+glochidial
+glomerular
+gloucester
+gorgonised
+grandmamma
+haeckelism
+headphones
+ignorantly
+impassable
+impishness
+intermalar
+jacobethan
+japanesque
+jubilation
+narcissist
+neoplastic
+nominalist
+nontrunked
+nunciature
+oblongness
+outlipping
+outsnoring
+overdosage
+overharden
+phenacetin
+pluraliser
+poeticised
+predefying
+predestine
+quadriceps
+quantified
+quaternary
+quietistic
+quinoidine
+transcribe
+ultrafiche
+unprofaned
+urogomphus
+vallecular
+vinylating
+violescent
+viscountcy
+vitalizing
+weaponshaw
+winkelried
+xenophobic
+xiphosuran
+zeffirelli
+zoophilism
+
+# input3.txt below
+
+abdication
+abnegating
+abstersive
+analytical
+antimasker
+balneology
+blandisher
+bloomfield
+boilerless
+butterfish
+cabalistic
+castration
+chasmogamy
+cnidophore
+corrientes
+devocalise
+dimerizing
+dispraised
+distillate
+distortive
+earthbound
+encipherer
+equipoised
+evaluating
+expurgated
+facileness
+farforthly
+feebleness
+filialness
+foamflower
+geniculate
+gingersnap
+gnosticize
+goalkeeper
+greenbrier
+hardenable
+harmlessly
+harquebuss
+hatshepset
+hephaistos
+incurrence
+interceder
+interferon
+introspect
+irishizing
+janitorial
+jarovizing
+jawbreaker
+journalese
+juantorena
+keratinise
+khrushchev
+kilmarnock
+kilndrying
+knockabout
+latinizing
+leucomaine
+librettist
+longstreet
+lysistrata
+matozinhos
+mickiewicz
+mixability
+motherhood
+mutilating
+nephrocele
+nettlelike
+noncogency
+nongenuine
+nonswimmer
+outroguing
+outselling
+overdilate
+overseason
+overstress
+phenetidin
+poulticing
+presbyopia
+prologuist
+pseudocele
+quadruplex
+quantified
+quathlamba
+quinacrine
+quintuplet
+reaudition
+recreatory
+remobilize
+retroceded
+romanesque
+scraggiest
+stockiness
+superimply
+swearingly
+symbolical
+tallowlike
+throughout
+toastiness
+trigeminal
+trouvaille
+undercarry
+undrenched
+unfrazzled
+unreminded
+unsturdily
+vindictive
+vinylidene
+viscometer
+viscometry
+viviparous
+wapinschaw
+westwardly
+windowless
+winkelried
+womanising
+xanthophyl
+xenocrates
+xenolithic
+xylostroma
+xylotomous
+yarborough
+yeastiness
+yellowlegs
+yellowwood
+yonkersite
+zeffirelli
+zephyrinus
+zinckenite
+zoophilism
+zoophobous
