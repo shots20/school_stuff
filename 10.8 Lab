@@ -59,7 +59,38 @@ for i in range(len(content)):
         print(content[i],f" - not in range")
 myfile.close()
 
-zephyrinus
-zinckenite
-zoophilism
-zoophobous
+# Corrected code, needed to add the word when it wasn't in the list, then pop it back out after sorting and getting the correct index
+# When the word was in the list, needed to add one to the upper bound to include that word in the range / not in range
+# Making a secondary list for all the words in range was the way to go, while appending and popping the original list did work
+    # making a secondary list in case of issues would be best practice, then making 3rd list for words in range / not in range
+file_input = input()
+lower_bound = input()
+upper_bound = input()
+
+opened_file = open(file_input, "r")
+content = opened_file.read().splitlines()
+
+try:
+    lower_bound_num = content.index(lower_bound)
+except ValueError:
+    content.append(lower_bound)
+    content.sort()
+    lower_bound_num = content.index(lower_bound)
+    content.pop(content.index(lower_bound))
+try:
+    upper_bound_num = content.index(upper_bound) + 1
+except ValueError:
+    content.append(upper_bound)
+    content.sort()
+    upper_bound_num = content.index(upper_bound)
+    content.pop(content.index(upper_bound))
+
+filtered_content = [content[i] for i in range(lower_bound_num, upper_bound_num)]
+
+for i in range(len(content)):
+    if content[i] in filtered_content:
+        print(content[i], f"- in range")
+    else:
+        print(content[i], f"- not in range")
+
+opened_file.close()
