@@ -1,0 +1,23 @@
+synonyms = {}   # Define dictionary
+contents = []
+easy_list = []
+stripped_list = []
+
+word_input = input()
+let_input = input()
+file1 = word_input + ".txt"
+openfile = open(file1, "r")
+for line in openfile.readlines():
+    contents.append(line.split(" "))
+easy_list = [item for sublist in contents for item in sublist]
+stripped_list = [s.strip() for s in easy_list]
+for word in stripped_list:
+    letter = word[0]
+    if letter not in synonyms:
+        synonyms[letter] = []
+    synonyms[letter].append(word)
+if let_input in synonyms:
+    for word in synonyms[let_input]:
+        print(word)
+else:
+    print(f"No synonyms for {word_input} begin with {let_input}.")
