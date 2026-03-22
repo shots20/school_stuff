@@ -1,7 +1,23 @@
+""" So what was given to us was the synonyms empty dictionary and we were told to get 2 inputs.
+One was to get a word of the txt file that the individual wanted to access. The other was to 
+get the synonyms of that word from the first input, for the letter that was input second.
+I tried to make it simple and straight forward and ended up going in a round about way that
+worked in the end.
+"""
 synonyms = {}   # Define dictionary
 contents = []
 easy_list = []
 stripped_list = []
+
+""" input word -> word.txt, read the file, pulled the file contents, made a list, broke it down
+into a nested list, flattened it out, committed every word to the dictionary with it's first
+letter being the key (that was a hint from the instructions). The second input is a letter,
+pulled the values using the letter as the key. Printed the values. If no key matched the letter
+then it prints No Synonyms for that word exist for the letter. I think the only best practice
+item that should have been changed before submitting was not having "word" in two or three
+different spots, loops, etc. I thought it could be cleaner code though much like how I did
+the easy_list. It would just make some lines longer.
+"""
 
 word_input = input()
 let_input = input()
